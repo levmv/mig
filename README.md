@@ -4,6 +4,7 @@ A small web framework for Go, built on the modern `net/http.ServeMux` (Go 1.22+)
 
 `mig` provides a cleaner API for common web development tasks (routing, middleware, request handling) without unnecessary complexity or third-party dependencies. 
 
+[![Build Status](https://github.com/levmv/mig/actions/workflows/go.yml/badge.svg)](https://github.com/levmv/mig/actions/workflows/go.yml)
 [![Go Reference](https://pkg.go.dev/badge/github.com/levmv/mig.svg)](https://pkg.go.dev/github.com/levmv/mig)
 [![Go Report Card](https://goreportcard.com/badge/github.com/levmv/mig)](https://goreportcard.com/report/github.com/levmv/mig)
 [![Go Version](https://img.shields.io/badge/Go-1.22%2B-blue.svg)](https://go.dev/doc/go1.22)
