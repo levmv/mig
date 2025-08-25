@@ -1,0 +1,36 @@
+
+name: Go CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:  
+  build:
+    runs-on: ubuntu-latest
+
+    # The sequence of steps that make up the job.
+    steps:
+      # Step 1: Check out your repository's code so the workflow can access it.
+      # Uses a pre-made action from the community. '@v4' pins it to a specific version.
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up the Go programming language environment.
+      # Since your project requires Go 1.22+, we specify it here.
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22.x' # The '.x' will use the latest patch release of Go 1.22.
+
+      # Step 3: Build the application.
+      # The '-v' flag means 'verbose' for more detailed output.
+      # './...' is a Go pattern meaning 'all packages in the current directory and subdirectories'.
+      - name: Build
+        run: go build -v ./...
+
+      # Step 4: Run the tests.
+      - name: Test
+        run: go test -v ./...
