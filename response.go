@@ -11,10 +11,11 @@ type Response struct {
 }
 
 func (w *Response) WriteHeader(code int) {
-	// Only set once to mirror net/http behavior
-	if w.status == 0 {
-		w.status = code
+	if w.status != 0 {
+		// ignore repeated calls
+		return
 	}
+	w.status = code
 	w.ResponseWriter.WriteHeader(code)
 }
 

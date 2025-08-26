@@ -229,8 +229,8 @@ func (m *Mig) DefaultErrorHandler(err error, ctx *Context) {
 		)
 	}
 
-	// If response has already been partially written, we must not attempt to write again.
-	if ctx.Response.Written() > 0 {
+	// If response has already been sent, we must not attempt to write again.
+	if ctx.Response.status != 0 {
 		return
 	}
 
