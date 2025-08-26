@@ -58,7 +58,6 @@ func (rg *RouteGroup) Handle(method, path string, handler Handler) {
 // GET registers a GET and HEAD handler for a path.
 func (rg *RouteGroup) GET(path string, handler Handler) {
 	rg.Handle(http.MethodGet, path, handler)
-	rg.Handle(http.MethodHead, path, handler)
 }
 
 // POST registers a POST handler for a path.
